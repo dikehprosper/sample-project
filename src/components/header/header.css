@@ -1,0 +1,44 @@
+.goog-logo-link {
+  display: none !important;
+}
+
+.profile-image {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.icon-overlay {
+  position: absolute;
+  right: 1.5px;
+  bottom: 1.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-overlay2 {
+  position: absolute;
+  right: 1.5px;
+  bottom: 1.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.green-icon {
+  background-color: green;
+  color: white;
+  padding: 4px 4px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.header-selection:hover {
+background-color: #0F172C;
+cursor: pointer
+}

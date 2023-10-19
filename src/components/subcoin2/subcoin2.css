@@ -1,0 +1,93 @@
+.outerbody-subcoin {
+  width: 98%;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
+  background-color: #1e293b;
+  border-radius: 9px;
+}
+
+.outerbody-subcoin1 {
+  cursor: pointer;
+  height: 150px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.outerbody-subcoin2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  height: 100%;
+  margin-bottom: 8px;
+}
+
+.outerbody-subcoin3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  height: 100%;
+  flex-direction: column;
+}
+
+.outerbody-subcoin4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  height: 100%;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.outerbody-subcoin5 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  height: 100%;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 650px) {
+  .outerbody-subcoin {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 1200px) {
+  .outerbody-subcoin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.outerbody-subcoin6 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 70px;
+  align-items: center;
+  gap: 10px;
+}
+
+.outerbody-subcoin7 {
+  width: 90px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 4px;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+  font-size: 14.5px;
+}
+
+.outerbody-subcoin7:hover {
+  background-color: rgba(250, 250, 250, 0.5);
+}

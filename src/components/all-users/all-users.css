@@ -1,0 +1,52 @@
+.outerbody-admin {
+  width: 95%;
+  gap: 5px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 40px;
+}
+
+.outerbody-admin1 {
+font-size: 20px
+}
+
+.outerbody-admin2 {
+  height: 38px;
+          width: 120px;
+          font-weight: 700;
+          background-color: #FEC40A;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black
+}
+
+
+@media screen and (max-width: 650px) {
+  .outerbody-admin1 {
+font-size: 14px
+}
+
+.outerbody-admin2 {
+  height: 28px;
+          width: 90px;
+          font-weight: 600;
+          background-color: #FEC40A;
+          border-radius: 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black
+}
+
+}
+
+@media screen and (min-width: 650px) and (max-width: 1200px) {
+  .outerbody-coin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
