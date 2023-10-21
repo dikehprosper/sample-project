@@ -1,10 +1,17 @@
 import "./coin.css";
+// @ts-ignore
 import Bitcoin from "../../images/bitcoin.jpeg";
+// @ts-ignore
 import Binance from "../../images/binance.jpeg";
+// @ts-ignore
 import Tron from "../../images/tron.jpeg";
+// @ts-ignore
 import Ethereum from "../../images/ethereum.jpeg";
+// @ts-ignore
 import Dogecoin from "../../images/dogecoin.jpeg";
+// @ts-ignore
 import BitcoinCash from "../../images/bitcoincash.jpeg";
+// @ts-ignore
 import Usdt from "../../images/usdt.jpeg";
 import Image from "next/image";
 import React, { useEffect } from "react";
@@ -97,8 +104,9 @@ const AllCoins = ({ price, data }) => {
 
   coins.forEach((crypto) => {
     crypto.userBalanceWorth = crypto.currentPrice * crypto.userBalance;
+    // @ts-ignore
     return (crypto.userBalanceWorth = formatNumberWithCommasAndDecimal(
-      crypto.userBalanceWorth,
+      crypto.userBalanceWorth
     ));
   });
 

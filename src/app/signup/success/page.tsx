@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 import Form from "@/components/form";
 

@@ -8,6 +8,7 @@ import Navigator from "@/components/nav/nav";
 import { Header } from "@/components/header/header";
 import Body3 from "@/components/body3";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const SendSelectedCoin = ({ params }:any) => {
@@ -15,6 +16,7 @@ const SendSelectedCoin = ({ params }:any) => {
   useEffect(() => {
     if (params.name === "Bitcoin%20Cash") {
       const name1 = decodeURIComponent(params.name);
+      // @ts-ignore
       setName(name1);
     } else {
       setName(params.name);

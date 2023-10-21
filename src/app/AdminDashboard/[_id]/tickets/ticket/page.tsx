@@ -2,12 +2,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
+// @ts-ignore
 import emptyTransactionImage from "@/images/empty.svg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Navigator from "@/components/admin-nav/admin-nav2";
 import { Header } from "@/components/header/header2";
 import Body8 from "@/components/body8";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 import { BiMessage } from "react-icons/bi";
 
@@ -124,10 +126,10 @@ const AllTickets = ({searchParams}: any) => {
         "/api/users/updateUserTicketConversationFromAdmin",
         conversationMessage
       );
-  console.log("conversation added successfully", response);
+      console.log("conversation added successfully", response);
 
-       getAllUserDetails();
-
+      getAllUserDetails();
+      // @ts-ignore
       setConversationMessage({ message: "", email: "", id: "" });
     } catch (error: any) {
       if (error.response.status === 500) {
@@ -136,39 +138,35 @@ const AllTickets = ({searchParams}: any) => {
     }
   };
 
-const closeUserTicketDetails = async (email, id2) => {
-  try {
- 
-    const status = "close"; // Set the status to "close"
-     const message = "";
-    // Create a new object with email, id, and status
-    const requestData = {
-      email,
-      id: id2,
-      status,
-      message
-    };
+  const closeUserTicketDetails = async (email, id2) => {
+    try {
+      const status = "close"; // Set the status to "close"
+      const message = "";
+      // Create a new object with email, id, and status
+      const requestData = {
+        email,
+        id: id2,
+        status,
+        message,
+      };
 
-    const response = await axios.post(
-      "/api/users/updateUserTicketConversationFromAdmin",
-      requestData
-    );
- toast.success("Ticket has been closed by Admin", response);
-    console.log("Ticket has been closed by Admin", response);
-
-  
-
-
-  } catch (error:any) {
-    if (error.response && error.response.status === 500) {
-      return toast.error("Failed to Send");
+      const response = await axios.post(
+        "/api/users/updateUserTicketConversationFromAdmin",
+        requestData
+      );
+      // @ts-ignore
+      toast.success("Ticket has been closed by Admin", response);
+      console.log("Ticket has been closed by Admin", response);
+    } catch (error: any) {
+      if (error.response && error.response.status === 500) {
+        return toast.error("Failed to Send");
+      }
+      if (error.response && error.response.status === 406) {
+        getAllUserDetails();
+        return toast.success("Ticket has been closed by Admin");
+      }
     }
-    if (error.response && error.response.status === 406) {
-  getAllUserDetails();
-      return toast.success("Ticket has been closed by Admin");
-    }
-  }
-};
+  };
 
 
 
@@ -558,6 +556,7 @@ const Tickets = ({
                       alignItems: "center",
                       cursor: "pointer",
                       backgroundColor: "#FDC40A",
+                      // @ts-ignore
                       pointerEvents: ticket.status === "closed" ? "none" : "",
                     }}
                     onClick={updateUserTicketDetails}
@@ -575,6 +574,7 @@ const Tickets = ({
                       alignItems: "center",
                       cursor: "pointer",
                       backgroundColor: "rgba(256, 0, 0, 0.6)",
+                      // @ts-ignore
                       pointerEvents: ticket.status === "closed" ? "none" : "",
                     }}
                     onClick={() => closeUserTicketDetails(data.email, id2)}

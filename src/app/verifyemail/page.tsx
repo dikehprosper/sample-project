@@ -3,8 +3,11 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
+// @ts-ignore
 import verifiedImage from "@/images/verified.png";
+// @ts-ignore
 import failedVerification from "../images/failedVerification.png";
 import { GiCancel } from "react-icons/gi";
 

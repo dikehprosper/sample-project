@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 import toast, { Toaster } from "react-hot-toast";
 import Form from "@/components/form";

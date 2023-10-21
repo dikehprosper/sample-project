@@ -8,6 +8,7 @@ import Navigator from "@/components/admin-nav/admin-nav";
 import { Header } from "@/components/header/header2";
 import AdminBody from "@/components/admin-body/admin-body";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const ProfilePage = () => {
@@ -42,19 +43,17 @@ const ProfilePage = () => {
   };
 
   const getAllUserDetails = async () => {
-        setLoading(true)
+    setLoading(true);
     const res = await axios.get("/api/users/allUsers");
     setData(res.data.data);
-        setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
     getAllUserDetails();
   }, []);
-  
 
-  const [open2, setOpen2] = useState(window.innerWidth <= 864 ? false : true);
-
+  const [open2, setOpen2] = useState(true);
   function toggleMenu() {
     setOpen2((prev) => {
       return !prev;
@@ -68,6 +67,12 @@ const ProfilePage = () => {
       setOpen2(true);
     }
   }, []);
+
+
+
+
+
+
 
   function toggleMenuSmallerDevice() {
     if (window.innerWidth <= 768) {
@@ -100,10 +105,8 @@ const ProfilePage = () => {
     };
   }, []);
 
-
-
-    const [data2, setData2] = React.useState({});
-   const getUserDetails = async () => {
+  const [data2, setData2] = React.useState({});
+  const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
 
     setData2(res.data.data);
@@ -112,7 +115,6 @@ const ProfilePage = () => {
   useEffect(() => {
     getUserDetails();
   }, []);
-
 
   return (
     <div

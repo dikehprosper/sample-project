@@ -8,6 +8,7 @@ export default function TradingViewWidget() {
   const onLoadScriptRef = useRef();
 
   useEffect(() => {
+    // @ts-ignore
     onLoadScriptRef.current = createWidget;
 
     if (!tvScriptLoadingPromise) {
@@ -23,7 +24,8 @@ export default function TradingViewWidget() {
     }
 
     tvScriptLoadingPromise.then(
-      () => onLoadScriptRef.current && onLoadScriptRef.current(),
+      // @ts-ignore
+      () => onLoadScriptRef.current && onLoadScriptRef.current()
     );
 
     return () => (onLoadScriptRef.current = null);
@@ -33,6 +35,7 @@ export default function TradingViewWidget() {
         document.getElementById("tradingview_50ab0") &&
         "TradingView" in window
       ) {
+        // @ts-ignore
         new window.TradingView.widget({
           width: "95%",
           height: "610px",

@@ -13,7 +13,9 @@ const Referral = () => {
 
   // Function to update the referral link based on the user's _id
   const updateReferralLink = () => {
+    // @ts-ignore
     if (user && user._id) {
+      // @ts-ignore
       const newReferralLink = `http://localhost:3000/signup/${user._id}`;
       setReferralLink(newReferralLink);
     }
@@ -38,6 +40,7 @@ const Referral = () => {
   const copyContent = () => {
     // Get the content of the input element
     const inputElement = document.getElementById("address");
+    // @ts-ignore
     const referralLink = inputElement.value;
 
     if (referralLink) {

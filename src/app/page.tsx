@@ -1,11 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+// @ts-ignore
 import bgImage from "@/images/bg4.png";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
+// @ts-ignore
 import bgImage2 from "@/images/file1.png";
+// @ts-ignore
 import bgImage3 from "@/images/file2.png";
+// @ts-ignore
 import bgImage4 from "@/images/file3.png";
+// @ts-ignore
 import { MdStorage } from "react-icons/md";
 import { FaKey } from "react-icons/fa";
 import { BiSolidLockAlt } from "react-icons/bi";
@@ -52,7 +58,7 @@ const MenuDropDownSection = ({ CloseMenuBar }: any) => {
             paddingRight: "34px",
           }}
         >
-          <AiOutlineClose fontSize="27px" fontColor="red" />
+          <AiOutlineClose fontSize="27px" />
         </div>
         <div
           style={{

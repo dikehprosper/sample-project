@@ -1,11 +1,18 @@
 "use client";
 import "./subcoin.css";
+// @ts-ignore
 import Bitcoin from "../../images/bitcoin.jpeg";
+// @ts-ignore
 import Binance from "../../images/binance.jpeg";
+// @ts-ignore
 import Tron from "../../images/tron.jpeg";
+// @ts-ignore
 import Ethereum from "../../images/ethereum.jpeg";
+// @ts-ignore
 import Dogecoin from "../../images/dogecoin.jpeg";
+// @ts-ignore
 import BitcoinCash from "../../images/bitcoincash.jpeg";
+// @ts-ignore
 import Usdt from "../../images/usdt.jpeg";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -221,6 +228,7 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
   const copyContent = () => {
     // Get the content of the input element
     const inputElement = document.getElementById("address");
+    // @ts-ignore
     const referralLink = inputElement.value;
 
     if (referralLink) {

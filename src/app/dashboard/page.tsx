@@ -8,6 +8,7 @@ import Navigator from "@/components/nav/nav";
 import { Header } from "@/components/header/header";
 import Body from "@/components/body/body";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const ProfilePage = () => {
@@ -72,21 +73,20 @@ const ProfilePage = () => {
     console.log(data);
   }, [data]);
 
-  const [open2, setOpen2] = useState(window.innerWidth <= 864 ? false : true);
+ const [open2, setOpen2] = useState(true);
+ function toggleMenu() {
+   setOpen2((prev) => {
+     return !prev;
+   });
+ }
 
-  function toggleMenu() {
-    setOpen2((prev) => {
-      return !prev;
-    });
-  }
-
-  useEffect(() => {
-    if (window.innerWidth <= 864) {
-      setOpen2(true);
-    } else {
-      setOpen2(true);
-    }
-  }, []);
+ useEffect(() => {
+   if (window.innerWidth <= 864) {
+     setOpen2(true);
+   } else {
+     setOpen2(true);
+   }
+ }, []);
 
   function toggleMenuSmallerDevice() {
     if (window.innerWidth <= 768) {
@@ -148,18 +148,23 @@ const ProfilePage = () => {
 
   async function check() {
     const amounts = [];
-    if(data && Array.isArray(data.referrals)) {
- for (const referral of data.referrals) {
-      try {
-        const response = await axios.post("/api/users/getAccountDetails", referral.referredEmail);
-        amounts.push(response.data.user.totalDepositedAmount);
-      } catch (error) {
-        toast.error("Failed to fetch data for referral", referral);
-        console.error(error);
+    // @ts-ignore
+    if (data && Array.isArray(data.referrals)) {
+      // @ts-ignore
+      for (const referral of data.referrals) {
+        try {
+          const response = await axios.post(
+            "/api/users/getAccountDetails",
+            referral.referredEmail
+          );
+          amounts.push(response.data.user.totalDepositedAmount);
+        } catch (error) {
+          toast.error("Failed to fetch data for referral", referral);
+          console.error(error);
+        }
       }
     }
-    }
-   
+
     const totalAmount = amounts.reduce((total, amount) => total + amount, 0);
     return totalAmount;
   }

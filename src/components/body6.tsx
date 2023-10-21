@@ -40,7 +40,7 @@ const Body6 = ({
           </p>
         </div>
       </div>
-      <Referral user={user} />
+      <Referral />
       <ReferralHistory user={user} />
     </div>
   );

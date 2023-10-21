@@ -2,6 +2,7 @@
 import "./nav.css";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+// @ts-ignore
 import logo from "../../images/meta.png";
 import { AiOutlineHome, AiOutlineInfoCircle } from "react-icons/ai";
 import { FiDollarSign } from "react-icons/fi";

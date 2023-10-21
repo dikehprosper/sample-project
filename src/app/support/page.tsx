@@ -7,10 +7,10 @@ import Navigator from "@/components/nav/nav";
 import { Header } from "@/components/header/header";
 import Body7 from "@/components/body7";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const Support = () => {
-  const [open2, setOpen2] = useState(window.innerWidth <= 864 ? false : true);
   const [state, setState] = useState(true);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -30,8 +30,7 @@ const Support = () => {
     BNBBalance: 0,
     BCHBalance: 0,
     DOGEBalance: 0,
-    tickets: [
-    ],
+    tickets: [],
     firstname: "james",
     address: "jndjnnfjn",
     country: "United Kingdom",
@@ -58,23 +57,6 @@ const Support = () => {
   useEffect(() => {
     console.log(user);
   }, [user]);
-  
-  // To set Coin Prices
-  //  useEffect(() => {
-  //   setLoading(true)
-  //     // Make a GET request to your API route
-  //     fetch('/api/users/crypto-price') // Replace 'your-api-route-name' with the actual route
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         setPrice(data)
-  //          setLoading(false)// Set the fetched data in your component's state
-  //       })
-
-  //       .catch((error) => {
-  //         console.error('Error fetching data:', error);
-  //       });
-  //   }, []);
 
   function changeLoadingStatus() {
     setLoading(true);
@@ -115,11 +97,20 @@ const Support = () => {
     }
   };
 
+  const [open2, setOpen2] = useState(true);
   function toggleMenu() {
     setOpen2((prev) => {
       return !prev;
     });
   }
+
+  useEffect(() => {
+    if (window.innerWidth <= 864) {
+      setOpen2(true);
+    } else {
+      setOpen2(true);
+    }
+  }, []);
 
   function toggleMenuSmallerDevice() {
     if (window.innerWidth <= 768) {

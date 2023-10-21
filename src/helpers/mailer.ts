@@ -39,14 +39,15 @@ export const sendEmail = async ({
       });
     }
 
-  var transport = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-      user: "b6a3f78b53c207",
-      pass: "28a4fd8eb8cec7",
-    },
-  });
+var transport = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "a290f0af03809e",
+    pass: "d7fbbdfa803376",
+  },
+});
+
     const mailOptions = {
       from: "meta-chains@gmail.com",
       to: email,

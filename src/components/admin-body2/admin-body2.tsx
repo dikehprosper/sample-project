@@ -7,6 +7,7 @@ import Link from "next/link";
 import "../referrals-history/referrals-history.css";
 import {GoPerson} from "react-icons/go";
 import Image from "next/image";
+// @ts-ignore
 import emptyReferralImage from "../../images/empty.svg";
 
 const AdminBody2 = ({ price, data, _id, updateBalance, updateAddress , updateWithdrawalMessage}: any) => {
@@ -23,7 +24,6 @@ const AdminBody2 = ({ price, data, _id, updateBalance, updateAddress , updateWit
       style={{
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "red",
         width: "100%",
         padding: "10px",
             minHeight: "100vh",
@@ -413,7 +413,7 @@ const [viewReferralState, setViewReferralState] = useState("hide")
 
   function viewReferrals() {
   if (viewReferralState === "view") {
-    return ( <ViewReferrals viewReferralState={viewReferralState} setViewReferralState={setViewReferralState} data={data} />)
+    return ( <ViewReferrals setViewReferralState={setViewReferralState} data={data} />)
   } else if (viewReferralState === "hide") {
     return;
   }
@@ -1621,7 +1621,8 @@ function EditBalance({
     const updatedUserEntry = {
       ...userEntry,
       action: action,
-      amountBalance: price * userEntry.amount
+      // @ts-ignore
+      amountBalance: price * userEntry.amount,
     };
 
     updateBalance(updatedUserEntry);
@@ -2019,6 +2020,38 @@ function EditAddress({
 
 
 function ViewReferrals({ setViewReferralState, data }) {
+  const [amount, setAmount] = useState(null);
+ const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData(referralEmail) {
+      try {
+        const response = await axios.post("/api/users/getAccountDetails", referralEmail);
+        console.log("Successfully fetched data for referral");
+        console.log(response.data.user.totalDepositedAmount);
+        setAmount(response.data.user.totalDepositedAmount);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch data for referral");
+        console.error(error);
+        setLoading(false);
+      }
+    }
+
+    data?.referrals.forEach((referral) => {
+      fetchData(referral.referredEmail);
+    });
+  }, [data]);
+
+       function formatNumberWithCommasAndDecimal(number) {
+    const formattedNumber = parseFloat(number).toFixed(2).toString();
+    const formattedString = parseFloat(formattedNumber).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    return formattedString;
+  }
+
 
   return (
     <div
@@ -2106,53 +2139,22 @@ function ViewReferrals({ setViewReferralState, data }) {
                   Created
                 </div>
               </div>{" "}
-              {data?.referrals.map((referral, index) => {
-                const [amount, setAmount] = useState(null);
-
-                  function formatNumberWithCommasAndDecimal(number) {
-    const formattedNumber = parseFloat(number).toFixed(2).toString();
-    const formattedString = parseFloat(formattedNumber).toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-    return formattedString;
-  }
-
-
-                useEffect(() => {
-                  async function check() {
-                    try {
-                      const response = await axios.post("/api/users/getAccountDetails", referral.referredEmail);
-                      console.log("Successfully fetched data for referral", index);
-                      console.log(response.data.user.totalDepositedAmount);
-                      setAmount(response.data.user.totalDepositedAmount);
-                    } catch (error) {
-                      console.error("Failed to fetch data for referral", index);
-                      console.error(error);
-                    }
-                  }
-
-                  check();
-                }, [referral.referredEmail]);
-
-                return (
-                  <div key={index} className="table">
-                    <div className="table-1">
-                <GoPerson color="#FDC40A" />
-                    </div>
-                    <div className="table-3">
-                      {referral.referredName.split(" ")[0]}
-                    </div>
-                    <div className="table-2">
-                      {amount !== null ?   `${formatNumberWithCommasAndDecimal(amount/10)}` : "Loading..."}
-                    </div>
-                    <div className="table-2">
-                      {" "}
-                      {new Date(referral.registrationDateTime).toLocaleString()}
-                    </div>
-                  </div>
-                );
-              })}
+        {data?.referrals.map((referral, index) => (
+        <div key={referral.id} className="table">
+          <div className="table-1">
+            <GoPerson color="#FDC40A" />
+          </div>
+          <div className="table-3">
+            {referral.referredName.split(" ")[0]}
+          </div>
+          <div className="table-2">
+            {loading ? "Loading..." : formatNumberWithCommasAndDecimal(amount / 10)}
+          </div>
+          <div className="table-2">
+            {new Date(referral.registrationDateTime).toLocaleString()}
+          </div>
+        </div>
+      ))}
             </div>
           ) : (
             <div className="transactionHistory-body1" style={{ margin: "20px 10px" }}>

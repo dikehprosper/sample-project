@@ -32,7 +32,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                      whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 First Name
@@ -70,7 +70,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                       whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Phone Number
@@ -103,22 +103,25 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                  whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Email
               </label>
 
-         <input
-  className="signup-input form3"
-  id="address"
-  type="text"
-  value={user.email}
-  readOnly // Add this attribute to make it non-editable
-  style={{ pointerEvents: 'none', backgroundColor: 'transparent', border: 'none' }}
-  placeholder={data.email || ""}
-/>
-
+              <input
+                className="signup-input form3"
+                id="address"
+                type="text"
+                value={user.email}
+                readOnly // Add this attribute to make it non-editable
+                style={{
+                  pointerEvents: "none",
+                  backgroundColor: "transparent",
+                  border: "none",
+                }}
+                placeholder={data.email || ""}
+              />
             </div>
             <div
               style={{
@@ -132,7 +135,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Address
@@ -165,7 +168,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Gender
@@ -175,6 +178,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                 <select
                   className="signup-input form4"
                   id="gender"
+                  // @ts-ignore
                   type="text"
                   value={user.gender}
                   onChange={(e) => {
@@ -205,7 +209,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Country
@@ -215,6 +219,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                 <select
                   className="signup-input form4"
                   id="country"
+                  // @ts-ignore
                   type="text"
                   value={user.country}
                   onChange={(e) => {
@@ -294,7 +299,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   </option>
                   <option value="Cook Islands">Cook Islands</option>
                   <option value="Costa Rica">Costa Rica</option>
-                  <option value="Cote D'Ivoire">Cote D'Ivoire</option>
+                  <option value="Cote D'Ivoire">Cote D&apos;Ivoire</option>
                   <option value="Croatia">Croatia</option>
                   <option value="Cuba">Cuba</option>
                   <option value="Curacao">Curacao</option>
@@ -368,14 +373,14 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   <option value="Kenya">Kenya</option>
                   <option value="Kiribati">Kiribati</option>
                   <option value="Korea, Democratic People's Republic of">
-                    Korea, Democratic People's Republic of
+                    Korea, Democratic People&apos;s Republic of
                   </option>
                   <option value="Korea, Republic of">Korea, Republic of</option>
                   <option value="Kosovo">Kosovo</option>
                   <option value="Kuwait">Kuwait</option>
                   <option value="Kyrgyzstan">Kyrgyzstan</option>
                   <option value="Lao People's Democratic Republic">
-                    Lao People's Democratic Republic
+                    Lao People&apos;s Democratic Republic
                   </option>
                   <option value="Latvia">Latvia</option>
                   <option value="Lebanon">Lebanon</option>
@@ -567,7 +572,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Residential Address
@@ -614,7 +619,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Next of Kin Name
@@ -647,7 +652,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Next of Kin Phone
@@ -680,7 +685,7 @@ export default function Form3({ user, setUser, data, updateUserDetails }: any) {
                   color: "#94A4B8",
                   fontSize: "14px",
                   fontWeight: "300",
-                   whiteSpace: "nowrap"
+                  whiteSpace: "nowrap",
                 }}
               >
                 Next of Kin address

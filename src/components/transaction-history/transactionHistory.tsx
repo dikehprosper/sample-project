@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./transactionHistory.css";
 import Image from "next/image";
+// @ts-ignore
 import emptyTransactionImage from "../../images/empty.svg";
 
 const TransactionHistory = ({ name, price, data }: any) => {

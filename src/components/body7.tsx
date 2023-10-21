@@ -150,7 +150,11 @@ const Body7 = ({
           }
         }
           return (
-            <div key={ticket.id} className="tickets1" onClick= {() => router.push(`/support/${ticket._id}`)} >
+            <div
+              key={ticket.id}
+              className="tickets1"
+              onClick={() => router.push(`/support/${ticket._id}`)}
+            >
               <p
                 style={{
                   fontWeight: "200",
@@ -164,11 +168,7 @@ const Body7 = ({
                 style={{ display: "flex", flexDirection: "column", gap: "7px" }}
               >
                 <span className="message-entered5">{ticket.subject}</span>
-                <span
-                      className="message-entered4"
-                >
-                  {ticket.message}
-                </span>
+                <span className="message-entered4">{ticket.message}</span>
               </div>
 
               <div>
@@ -179,7 +179,7 @@ const Body7 = ({
                     opacity: "0.6",
                   }}
                 >
-                  {ticket.priority ? ticket.priority : "High" }
+                  {ticket.priority ? ticket.priority : "High"}
                 </div>
                 <div
                   style={{
@@ -194,7 +194,6 @@ const Body7 = ({
               <div
                 style={{
                   display: "flex",
-                  marginTop: "10px",
                   justifyContent: "space-between",
                   marginTop: "22px",
                 }}
@@ -211,7 +210,7 @@ const Body7 = ({
                     fontSize: "13px",
                     borderRadius: "5px",
                     opacity: "0.6",
-                    fontWeight:"500",
+                    fontWeight: "500",
                     color: ticket.status === "open" ? "black" : "white",
                   }}
                 >
@@ -228,8 +227,17 @@ const Body7 = ({
                     gap: "7px",
                   }}
                 >
-                <span style={{color: ticket.status === "open" ? "#FDC40A" : "red",  display: "flex",
-                    alignItems: "center",}}> <BiMessage /> </span> {ticket.conversations && ticket.conversations.length}
+                  <span
+                    style={{
+                      color: ticket.status === "open" ? "#FDC40A" : "red",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    {" "}
+                    <BiMessage />{" "}
+                  </span>{" "}
+                  {ticket.conversations && ticket.conversations.length}
                 </div>
               </div>
             </div>
@@ -408,14 +416,15 @@ const Modal = ({ closeModal, updateUserTicketDetails, data, setData }:any) => {
             <select
               className="signup-input form4"
               id="country"
+              // @ts-ignore
               type="text"
-                value={data.priority}
-                onChange={(e) => {
-                  setData({
-                    ...data,
-                    priority: e.target.value,
-                  });
-                }}
+              value={data.priority}
+              onChange={(e) => {
+                setData({
+                  ...data,
+                  priority: e.target.value,
+                });
+              }}
             >
               <option value="High">High</option>
               <option value="Medium">Medium</option>
@@ -467,7 +476,6 @@ const Modal = ({ closeModal, updateUserTicketDetails, data, setData }:any) => {
               cursor: "pointer",
             }}
             onClick={addTicket}
-            
           >
             Add Ticket
           </div>

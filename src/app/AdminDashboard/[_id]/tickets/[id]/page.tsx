@@ -2,12 +2,14 @@
 import React, { useRef, useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
+// @ts-ignore
 import emptyTransactionImage from "@/images/empty.svg";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Navigator from "@/components/admin-nav/admin-nav2";
 import { Header } from "@/components/header/header2";
 import Body8 from "@/components/body8";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 import { BiMessage } from "react-icons/bi";
 import Link from "next/link";

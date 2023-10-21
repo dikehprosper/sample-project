@@ -1,6 +1,9 @@
+// @ts-ignore
 import User from "@/models/userModel";
+// @ts-ignore
 import { connect } from "@/dbConfig/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
+// @ts-ignore
 import { sendEmail } from "@/helpers/mailer";
 
 connect();
@@ -18,7 +21,7 @@ export async function POST(request: NextRequest) {
     if (!user) {
       return NextResponse.json(
         { error: "No user with such email" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 

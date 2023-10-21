@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import {FcCheckmark} from "react-icons/fc";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 export default function Form2({ name, price }: any) {

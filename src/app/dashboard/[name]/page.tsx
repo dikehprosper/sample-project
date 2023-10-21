@@ -9,6 +9,7 @@ import { Header } from "@/components/header/header";
 import Body from "@/components/body/body";
 import Body2 from "@/components/body2";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const ProfilePage = ({ params }:any) => {
@@ -16,6 +17,7 @@ const ProfilePage = ({ params }:any) => {
   useEffect(() => {
     if (params.name === "Bitcoin%20Cash") {
       const name1 = decodeURIComponent(params.name);
+      // @ts-ignore
       setName(name1);
     } else {
       setName(params.name);

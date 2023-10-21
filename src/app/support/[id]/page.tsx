@@ -7,6 +7,7 @@ import Navigator from "@/components/nav/nav";
 import { Header } from "@/components/header/header";
 import Body8 from "@/components/body8";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const Support = ({ params: { id } }: any) => {

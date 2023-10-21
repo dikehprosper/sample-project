@@ -35,10 +35,10 @@ const Body = ({ price, data, totalBalance }: any) => {
       >
         Welcome, {firstName}!
       </div>
-      <Referral user={data} />
+      <Referral />
       <BalanceBoard price={price} data={data} totalBalance={totalBalance} />
       <AllCoins price={price} data={data} />
-      <TradingViewWidget height={100} />
+      <TradingViewWidget />
     </div>
   );
 };

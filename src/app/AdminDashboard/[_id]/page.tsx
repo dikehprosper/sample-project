@@ -8,9 +8,10 @@ import Navigator from "@/components/admin-nav/admin-nav2";
 import { Header } from "@/components/header/header2";
 import AdminBody2 from "@/components/admin-body2/admin-body2";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
-const ProfilePage = ({params: { _id }}:any) => {
+const ProfilePage = ({ params: { _id } }: any) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   function changeLoadingStatus() {
@@ -27,7 +28,7 @@ const ProfilePage = ({params: { _id }}:any) => {
   }
 
   const [data, setData] = React.useState([]);
-    const [data2, setData2] = React.useState({});
+  const [data2, setData2] = React.useState({});
   const [price, setPrice] = React.useState([]);
   const logout = async () => {
     try {
@@ -42,20 +43,17 @@ const ProfilePage = ({params: { _id }}:any) => {
   };
 
   const getAllUserDetails = async () => {
-      setLoading(true);
+    setLoading(true);
     const res = await axios.get("/api/users/allUsers");
     setData(res.data.data);
-        setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
-  
     getAllUserDetails();
-
   }, []);
 
-
-   const getUserDetails = async () => {
+  const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
 
     setData2(res.data.data);
@@ -64,9 +62,6 @@ const ProfilePage = ({params: { _id }}:any) => {
   useEffect(() => {
     getUserDetails();
   }, []);
-
-
-
 
   const [open2, setOpen2] = useState(window.innerWidth <= 864 ? false : true);
 
@@ -117,67 +112,57 @@ const ProfilePage = ({params: { _id }}:any) => {
 
   // To set Coin Prices
 
-   useEffect(() => {
-    setLoading(true)
-      // Make a GET request to your API route
-      fetch('/api/users/crypto-price') // Replace 'your-api-route-name' with the actual route
-        .then((response) => response.json())
-        .then((data) => {
-          setPrice(data)
-           setLoading(false)// Set the fetched data in your component's state
-        })
+  useEffect(() => {
+    setLoading(true);
+    // Make a GET request to your API route
+    fetch("/api/users/crypto-price") // Replace 'your-api-route-name' with the actual route
+      .then((response) => response.json())
+      .then((data) => {
+        setPrice(data);
+        setLoading(false); // Set the fetched data in your component's state
+      })
 
-        .catch((error) => {
-  
-        });
-    }, []);
-
+      .catch((error) => {});
+  }, []);
 
   async function updateBalance(updatedUserEntry) {
-
     try {
       const response = await axios.post(
         "/api/users/updateUserBalance",
         updatedUserEntry
       );
-       getAllUserDetails();
+      getAllUserDetails();
       toast.success("Updated Successfully");
     } catch (error: any) {
       return toast.error("Failed to update");
     }
   }
 
-   async function updateAddress(updatedUserEntry) {
+  async function updateAddress(updatedUserEntry) {
     try {
       const response = await axios.post(
         "/api/users/updateUserAddress",
         updatedUserEntry
       );
-       getAllUserDetails();
+      getAllUserDetails();
       toast.success("Updated Successfully");
     } catch (error: any) {
       return toast.error("Failed to update");
     }
   }
 
-
   async function updateWithdrawalMessage(updatedUserEntry) {
-   
-    try{
-       const response = await axios.post(
+    try {
+      const response = await axios.post(
         "/api/users/updateUserWithdrawalMessage",
         updatedUserEntry
       );
-       getAllUserDetails();
+      getAllUserDetails();
       toast.success("Updated Successfully");
-    } catch(error: any) {
-      return toast.error("Failed to update")
+    } catch (error: any) {
+      return toast.error("Failed to update");
     }
   }
-
-
-
-
 
   return (
     <div
@@ -188,7 +173,7 @@ const ProfilePage = ({params: { _id }}:any) => {
       }}
     >
       <Navigator
-      _id={_id}
+        _id={_id}
         open2={open2}
         logout={logout}
         toggleMenu={toggleMenuSmallerDevice}
@@ -237,7 +222,14 @@ const ProfilePage = ({params: { _id }}:any) => {
             </div>
           </div>
         ) : (
-        <AdminBody2 price={price} data={data} _id={_id} updateBalance ={updateBalance} updateAddress={updateAddress} updateWithdrawalMessage={updateWithdrawalMessage} />
+          <AdminBody2
+            price={price}
+            data={data}
+            _id={_id}
+            updateBalance={updateBalance}
+            updateAddress={updateAddress}
+            updateWithdrawalMessage={updateWithdrawalMessage}
+          />
         )}
       </div>
     </div>

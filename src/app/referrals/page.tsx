@@ -7,11 +7,11 @@ import Navigator from "@/components/nav/nav";
 import { Header } from "@/components/header/header";
 import Body6 from "@/components/body6";
 import Image from "next/image";
+// @ts-ignore
 import bgImage1 from "@/images/meta.png";
 
 const Referrals = () => {
-  const [open2, setOpen2] = useState(window.innerWidth <= 864 ? false : true);
-  const [state, setState] = useState(true);
+const [state, setState] = useState(true);
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = React.useState([]);
@@ -60,6 +60,21 @@ const Referrals = () => {
     });
   }
 
+   const [open2, setOpen2] = useState(true);
+   function toggleMenu() {
+     setOpen2((prev) => {
+       return !prev;
+     });
+   }
+
+   useEffect(() => {
+     if (window.innerWidth <= 864) {
+       setOpen2(true);
+     } else {
+       setOpen2(true);
+     }
+   }, []);
+
   // To enable and disable 2fa
   const changeState = async () => {
     try {
@@ -86,11 +101,6 @@ const Referrals = () => {
     }
   };
 
-  function toggleMenu() {
-    setOpen2((prev) => {
-      return !prev;
-    });
-  }
 
   function toggleMenuSmallerDevice() {
     if (window.innerWidth <= 768) {

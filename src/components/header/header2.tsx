@@ -3,6 +3,7 @@ import "./header.css";
 import React, { useEffect, useState } from "react";
 import { CgMenu } from "react-icons/cg";
 import Image from "next/image";
+// @ts-ignore
 import profile from "../../images/Profile-Icon-SVG-09856789.webp";
 import {BsPersonFill} from "react-icons/bs";
 import { AiOutlinePoweroff} from "react-icons/ai";
@@ -18,11 +19,12 @@ export const Header = ({ open2, setopen2, toggleMenu, logout, data }: any) => {
     );
 
     document.body.appendChild(addScript);
-
+// @ts-ignore
     window.googleTranslateElementInit = googleTranslateElementInit;
   }, []);
 
   const googleTranslateElementInit = () => {
+    // @ts-ignore
     new window.google.translate.TranslateElement(
       {
         pageLanguage: "en",
@@ -95,8 +97,8 @@ function DropDown({ setState, logout, data}: any) {
           bottom: "0",
           left: "0",
           right: "0",}} onMouseEnter={() => setState(false)}> </div>
-       <div style={{position: "fixed", top: "50px", backgroundColor: "#1E293B", width: "250px", height: "106px", zIndex: "20000000000" ,right: "20px", dispaly: "flex", flexDirection: "column", borderRadius: "8px"}}>
-  <div style={{display: "flex", width: '100%',height: "50%", padding: "0px 18px", display: "flex", alignItems: "center", gap: '15px', borderBottom: ".5px solid grey"}}>
+       <div style={{position: "fixed", top: "50px", backgroundColor: "#1E293B", width: "250px", height: "106px", zIndex: "20000000000" ,right: "20px", flexDirection: "column", borderRadius: "8px"}}>
+  <div style={{display: "flex", width: '100%',height: "50%", padding: "0px 18px", alignItems: "center", gap: '15px', borderBottom: ".5px solid grey"}}>
      <div className="profile-image">
         <Image src={profile} alt="" height={40} />
         <div className="icon-overlay2">
@@ -108,7 +110,7 @@ function DropDown({ setState, logout, data}: any) {
         <div style={{fontWeight: "300" ,fontSize: "12px"}}>{data?.email}</div>
      </div>
       </div>
-        <div className="header-selection" style={{display: "flex", width: '100%', height: "50%", padding: "0px 18px", display: "flex", alignItems: "center",  fontSize: '14px'}} onClick={logout}> <AiOutlinePoweroff fontSize="18px" /> &nbsp; Sign Out</div>
+        <div className="header-selection" style={{display: "flex", width: '100%', height: "50%", padding: "0px 18px", alignItems: "center",  fontSize: '14px'}} onClick={logout}> <AiOutlinePoweroff fontSize="18px" /> &nbsp; Sign Out</div>
       </div>
       </div>
   )

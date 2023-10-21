@@ -3,6 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import Image from "next/image";
+// @ts-ignore
 import emptyTransactionImage from "../images/empty.svg";
 const Body8 = ({
   id,
@@ -160,72 +161,76 @@ const Body8 = ({
                   }}
                   ref={chatContainerRef}
                 >
-                  {ticket.conversations.length > 0 ? (
-                    ticket.conversations.map((data) => {
-                      const convertedTimestamp2 = new Date(
-                        data.registrationDateTime
-                      ).toLocaleString("en-US", {
-                        timeZone: "UTC",
-                        year: "numeric",
-                        month: "2-digit",
-                        day: "2-digit",
-                        hour: "2-digit",
-                        minute: "2-digit",
-                        second: "2-digit",
-                      });
+                  {ticket.conversations.length > 0
+                    ? ticket.conversations.map((data) => {
+                        const convertedTimestamp2 = new Date(
+                          data.registrationDateTime
+                        ).toLocaleString("en-US", {
+                          timeZone: "UTC",
+                          year: "numeric",
+                          month: "2-digit",
+                          day: "2-digit",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          second: "2-digit",
+                        });
 
-                      return data.messagefromAdmin ? (
+                        return data.messagefromAdmin ? (
+                          <div
+                            key={data.id}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                              alignItems: "end",
+                            }}
+                          >
+                            <div className="time-stamp">
+                              {" "}
+                              {convertedTimestamp2}
+                            </div>
+                            <div className="message-entered6">
+                              {data.messagefromAdmin}
+                            </div>
+                          </div>
+                        ) : (
+                          <div
+                            key={data.id}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                            }}
+                          >
+                            <div className="time-stamp">
+                              {" "}
+                              {convertedTimestamp2}
+                            </div>
+                            <div className="message-entered3">
+                              {data.messagefromUser}
+                            </div>
+                          </div>
+                        );
+                      })
+                    : ticket.status === "open" && (
                         <div
-                          key={data.id}
                           style={{
+                            width: "100%",
+                            height: "300px",
                             display: "flex",
+                            justifyContent: "center",
                             flexDirection: "column",
-                            gap: "10px",
-                            alignItems: "end",
+                            alignItems: "center",
                           }}
                         >
-                          <div className="time-stamp">
-                            {" "}
-                            {convertedTimestamp2}
-                          </div>
-                          <div className="message-entered6">
-                            {data.messagefromAdmin}
-                          </div>
+                          <Image
+                            src={emptyTransactionImage}
+                            alt=""
+                            height={170}
+                          />
+                          <p style={{ marginTop: "5px" }}> No data to show</p>
                         </div>
-                      ) : (
-                        <div
-                          key={data.id}
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "10px",
-                          }}
-                        >
-                          <div className="time-stamp">
-                            {" "}
-                            {convertedTimestamp2}
-                          </div>
-                          <div className="message-entered3">
-                            {data.messagefromUser}
-                          </div>
-                        </div>
-                      );
-                    })
-                  ) : (
-                 ticket.status === "open" && <div
-                      style={{
-                        width: "100%",
-                        height: "300px",
-                        display: "flex",
-                        justifyContent: "center",
-                        flexDirection: "column",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Image src={emptyTransactionImage} alt="" height={170} />
-                      <p style={{ marginTop: "5px" }}> No data to show</p>
-                    </div>
-                  )}
+                      )}
                   {ticket.status === "closed" && (
                     <div
                       style={{
@@ -272,7 +277,8 @@ const Body8 = ({
                     alignItems: "center",
                     cursor: "pointer",
                     backgroundColor: "#FDC40A",
-                    pointerEvents: ticket.status === "closed" ? "none" : ""
+                    // @ts-ignore
+                    pointerEvents: ticket.status === "closed" ? "none" : "",
                   }}
                   onClick={updateUserTicketDetails}
                 >

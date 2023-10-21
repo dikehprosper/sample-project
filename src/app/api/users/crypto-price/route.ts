@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
-
+// @ts-ignore
 export async function GET(request: NextRequest) {
   let response = null;
   try {

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+// @ts-ignore
 import profile from "../images/Profile-Icon-SVG-09856789.webp";
 import Form3 from "@/components/form3";
 import Form5 from "@/components/form5";
