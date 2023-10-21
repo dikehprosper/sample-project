@@ -205,17 +205,17 @@ const onLogin = async () => {
           >
             Email
           </label>
-
           <input
             className="signup-input"
             id="email"
             type="text"
             value={user.email}
             onChange={(e) =>
+              {e.preventDefault();
               setUser({
                 ...user,
                 email: e.target.value,
-              })
+              })}
             }
             placeholder="Email address"
           />
@@ -234,10 +234,13 @@ const onLogin = async () => {
             type="text"
             value={user.password}
             onChange={(e) =>
-              setUser({
-                ...user,
-                password: e.target.value,
-              })
+              {
+                e.preventDefault();
+                setUser({
+                  ...user,
+                  password: e.target.value,
+                });
+              }
             }
             placeholder="password"
           />
