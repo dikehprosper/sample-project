@@ -28,7 +28,7 @@ export default function RootLayout({
         className={inter.className}
         style={{ backgroundColor: "#0F172B", backgroundRepeat: "no-repeat" }}
       >
-        {/* <CrispProvider /> */}
+        <CrispProvider />
         <Toaster />
         {children}
       </body>
