@@ -16,7 +16,7 @@ const Referral = () => {
     // @ts-ignore
     if (user && user._id) {
       // @ts-ignore
-      const newReferralLink = `http://localhost:3000/signup/${user._id}`;
+      const newReferralLink = `https://www.meta-chains.org/signup/${user._id}`;
       setReferralLink(newReferralLink);
     }
   };
