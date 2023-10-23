@@ -39,15 +39,23 @@ export const sendEmail = async ({
       });
     }
 
-var transport = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: "c77950cc13910f",
-    pass: "882275b3bc9229",
-  },
-});
+    // var transport = nodemailer.createTransport({
+    //   host: "sandbox.smtp.mailtrap.io",
+    //   port: 2525,
+    //   auth: {
+    //     user: "c77950cc13910f",
+    //     pass: "882275b3bc9229",
+    //   },
+    // });
 
+    var transport = nodemailer.createTransport({
+      host: "live.smtp.mailtrap.io",
+      port: 587,
+      auth: {
+        user: "api",
+        pass: "fa4c41a166c1dab3687a21dc83440e18",
+      },
+    });
 
     const mailOptions = {
       from: "meta-chains@gmail.com",
