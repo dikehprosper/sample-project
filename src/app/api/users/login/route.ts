@@ -1,20 +1,22 @@
+// @ts-ignore
 import { connect } from "@/dbConfig/dbConfig";
+// @ts-ignore
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import { isJSDocThrowsTag } from "typescript";
 import jwt from "jsonwebtoken";
+// @ts-ignore
 import { sendEmail } from "@/helpers/mailer";
 connect();
-import isOnline from "is-online"; 
+import isOnline from "is-online";
 
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
 
-
-       const online = await isOnline();
+    const online = await isOnline();
     if (!online) {
       return NextResponse.json(
         { error: "No internet connection" },
@@ -27,11 +29,11 @@ export async function POST(request: NextRequest) {
     if (!user) {
       return NextResponse.json(
         { error: "User does not exist" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
-      //check if password is correct
+    //check if password is correct
     const validPassword = await bcryptjs.compare(password, user.password);
     if (!validPassword) {
       return NextResponse.json({ error: "Invalid password" }, { status: 402 });
@@ -40,40 +42,39 @@ export async function POST(request: NextRequest) {
     if (user.isVerified === false) {
       return NextResponse.json(
         { error: "User is not verified" },
-        { status: 401 },
+        { status: 401 }
       );
     }
-    
-     if (user.fastatus === true) {
-   console.log(user._id)
-        sendEmail({
-      email,
-      emailType: "SEND",
-      userId: user._id,
-      fullname: user.fullname,
-    });
+
+    if (user.fastatus === true) {
+      console.log(user._id);
+      sendEmail({
+        email,
+        emailType: "SEND",
+        userId: user._id,
+        fullname: user.fullname,
+      });
 
       return NextResponse.json(
         { error: "check your mail for 2fa password" },
-        { status: 403 },
+        { status: 403 }
       );
     }
 
-    
-if (user.profilecomplete === false) {
-  return NextResponse.json({
-    error: "Complete your profile",
-    id: user._id // Include the ID in the error response
-  }, {
-    status: 404 // Use an appropriate status code for an error
-  });
-}
-
-
+    if (user.profilecomplete === false) {
+      return NextResponse.json(
+        {
+          error: "Complete your profile",
+          id: user._id, // Include the ID in the error response
+        },
+        {
+          status: 404, // Use an appropriate status code for an error
+        }
+      );
+    }
 
     console.log(user.isVerified);
 
-  
     //create token data
     const tokenData = {
       id: user._id,
@@ -90,7 +91,7 @@ if (user.profilecomplete === false) {
     const response = NextResponse.json({
       message: "Login Successful",
       success: true,
-      user
+      user,
     });
 
     response.cookies.set("token", token, {
