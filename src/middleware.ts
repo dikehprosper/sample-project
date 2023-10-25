@@ -1,41 +1,3 @@
-// import { NextResponse } from "next/server";
-// import type { NextRequest } from "next/server";
-
-// // This function can be marked `async` if using `await` inside
-// export function middleware(request: NextRequest) {
-//   const path = request.nextUrl.pathname;
-//   const isPublicPath =
-//     path === "/login" ||
-//     path === "/signup" ||
-//     path === "/" ||
-//     path === "/verifyemail";
-//   const token = request.cookies.get("token")?.value || "";
-
-//   if (isPublicPath && token) {
-//     return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
-//   }
-
-//   if (!isPublicPath && !token) {
-//     return NextResponse.redirect(new URL("/", request.nextUrl));
-//   }
-// }
-
-// // See "Matching Paths" below to learn more
-// export const config = {
-//   matcher: [
-//     "/",
-//     "/dashboard/:path*",
-//     "/login",
-//     "/signup",
-//     "/verifyemail/:path*",
-//     "/settings/:path*",
-//     "/referrals/:path*"
-//   ],
-// };
-
-
-
-
 
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
@@ -58,6 +20,7 @@ export async function middleware(request: NextRequest) {
       const decodedToken = jwt.decode(token);
       console.log(decodedToken);
       // Check if the user is an admin
+      // @ts-ignore
       if (decodedToken && decodedToken.isAdmin) {
         hasRedirected = true;
         return NextResponse.redirect(
@@ -70,6 +33,7 @@ export async function middleware(request: NextRequest) {
   // Check if the user is an admin and trying to access the "/dashboard" route
   if (path.startsWith("/dashboard") && token) {
     const decodedToken = jwt.decode(token);
+    // @ts-ignore
     if (decodedToken && decodedToken.isAdmin) {
       hasRedirected = true;
       return NextResponse.redirect(new URL("/AdminDashboard", request.nextUrl));
@@ -79,6 +43,7 @@ export async function middleware(request: NextRequest) {
   // Check if the user is not an admin and trying to access the "/AdminDashboard" route
   if (path.startsWith("/AdminDashboard") && token) {
     const decodedToken = jwt.decode(token);
+    // @ts-ignore
     if (decodedToken && !decodedToken.isAdmin) {
       hasRedirected = true;
       return NextResponse.redirect(new URL("/dashboard", request.nextUrl));

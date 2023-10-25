@@ -52,17 +52,30 @@ export const sendEmail = async ({
 
 
 
+// var transport = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: adminEmail,
+//     pass: adminEmailKey,
+//   },
+//   tls: {
+//     rejectUnauthorized: true,
+//     minVersion: "TLSv1.2",
+//   },
+// });
+
 var transport = nodemailer.createTransport({
   service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
     user: adminEmail,
     pass: adminEmailKey,
   },
-  tls: {
-    rejectUnauthorized: true,
-    minVersion: "TLSv1.2",
-  },
+ 
 });
+
 
 
     const mailOptions = {
