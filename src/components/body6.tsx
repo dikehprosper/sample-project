@@ -13,8 +13,6 @@ const Body6 = ({
   changeLoadingStatus,
 }: any) => {
 
- console.log(user)
-  console.log(data)
 
   return (
     <div

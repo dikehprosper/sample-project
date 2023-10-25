@@ -150,9 +150,7 @@ const [state, setState] = useState(true);
     }
   };
 
-//   useEffect(() => {
-// console.log(user)
-//   },[user])
+
 
   return (
     <div

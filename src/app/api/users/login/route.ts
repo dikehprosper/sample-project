@@ -48,12 +48,18 @@ export async function POST(request: NextRequest) {
 
     if (user.fastatus === true) {
       console.log(user._id);
-      sendEmail({
-        email,
-        emailType: "SEND",
-        userId: user._id,
-        fullname: user.fullname,
-      });
+      try {
+        const triggerSendMail = await sendEmail({
+          email,
+          emailType: "SEND",
+          userId: user._id,
+          fullname: user.fullname,
+        });
+        console.log("sent", triggerSendMail.response);
+      } catch (error) {
+        console.log(error, "failed");
+      }
+     
 
       return NextResponse.json(
         { error: "check your mail for 2fa password" },

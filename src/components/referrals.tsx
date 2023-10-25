@@ -34,6 +34,7 @@ const Referral = () => {
   // Use an effect to update the referral link whenever the user state changes
   useEffect(() => {
     updateReferralLink();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   // Function to copy the referral link to the clipboard

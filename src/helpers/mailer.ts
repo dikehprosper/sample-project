@@ -38,45 +38,19 @@ export const sendEmail = async ({
       });
     }
 
-    // var transport = nodemailer.createTransport({
-    //   host: "sandbox.smtp.mailtrap.io",
-    //   port: 2525,
-    //   auth: {
-    //     user: "c77950cc13910f",
-    //     pass: "882275b3bc9229",
-    //   },
-    // });
-
     const adminEmail = process.env.EMAIL;
     const adminEmailKey = process.env.EMAIL_KEY;
 
-
-
-// var transport = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: adminEmail,
-//     pass: adminEmailKey,
-//   },
-//   tls: {
-//     rejectUnauthorized: true,
-//     minVersion: "TLSv1.2",
-//   },
-// });
-
-var transport = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: adminEmail,
-    pass: adminEmailKey,
-  },
- 
-});
-
-
+    var transport = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: adminEmail,
+        pass: adminEmailKey,
+      },
+    });
 
     const mailOptions = {
       from: adminEmail,
@@ -95,9 +69,8 @@ var transport = nodemailer.createTransport({
       html: (() => {
         if (emailType === "VERIFY") {
           return `
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
 <head>
     <style>
         body {
@@ -235,14 +208,12 @@ var transport = nodemailer.createTransport({
         <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
-
 </html>
  `;
         } else if (emailType === "RESET") {
           return `
-                 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
 <head>
     <style>
         body {
@@ -295,33 +266,33 @@ var transport = nodemailer.createTransport({
             font-weight: bold;
             color: black;
             text-decoration: none;
-              margin: 10px 15px;
+            margin: 10px 15px;
         }
 
          .reset-link a {
-  text-decoration: none;
-    color: black;
-      font-weight: bold;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
         }
 
         .url {
             color: black;
             font-size: 15px;
             line-height: 23px;
-                margin: 10px 15px;
+            margin: 10px 15px;
         }
 
- .url > p {
-  color: blue;
-  text-decoration: none;
- }
+        .url > p {
+          color: blue;
+          text-decoration: none;
+        }
      
 
         .expiration {
             color: #afafaf;
             font-size: 15px;
             color: black;
-              margin: 10px 15px;
+            margin: 10px 15px;
         }
 
         .footer {
@@ -366,7 +337,7 @@ var transport = nodemailer.createTransport({
             </div>
             <p class="url">
                 If you're having trouble, try copying and pasting the following URL into your browser:
-<p>${process.env.DOMAIN}/resetpassword?token=${hashedToken}</p>
+                <p>${process.env.DOMAIN}/resetpassword?token=${hashedToken}</p>
             </p>
             <p class="expiration">
                 This link will expire in 2 hours.
@@ -387,15 +358,13 @@ var transport = nodemailer.createTransport({
         <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
-
 </html>
 
           `;
         } else if (emailType === "WELCOME") {
           return `
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
 <head>
     <style>
         body {
@@ -507,16 +476,12 @@ var transport = nodemailer.createTransport({
         <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
-
-</html>
-
-
-          `;
+</html>`;
         } else {
           return `
-              <!DOCTYPE html>
-         <html>
-        <body
+<!DOCTYPE html>
+<html>
+<body
     style="
       text-align: center;
       width: 100%;
@@ -566,7 +531,7 @@ var transport = nodemailer.createTransport({
             text-decoration: none;
           "
         >
-Authorize login into your account
+         Authorize login into your account
         </div>
 
           <div
@@ -583,7 +548,7 @@ Authorize login into your account
             margin: 0px auto
           "
         >
-    ${randomNumbersString}
+         ${randomNumbersString}
         </div>
  
         <p
@@ -653,7 +618,7 @@ Authorize login into your account
     };
     const mailresponse = await transport.sendMail(mailOptions);
     return mailresponse;
-  } catch (error: any) {
+  } catch (error) {
     throw new Error(error.message);
   }
 };
