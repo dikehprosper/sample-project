@@ -50,13 +50,20 @@ export const sendEmail = async ({
     const adminEmail = process.env.EMAIL;
     const adminEmailKey = process.env.EMAIL_KEY;
 
-    var transport = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: adminEmail,
-        pass: adminEmailKey,
-      },
-    });
+
+
+var transport = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: adminEmail,
+    pass: adminEmailKey,
+  },
+  tls: {
+    rejectUnauthorized: true,
+    minVersion: "TLSv1.2",
+  },
+});
+
 
     const mailOptions = {
       from: adminEmail,
