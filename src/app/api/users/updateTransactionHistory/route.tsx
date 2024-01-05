@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
   } else if (name === "Ethereum") {
     user.ETHBalance -= amount;
   } else if (name === "TRON") {
-    user.TRONBalance -= amount;
+    user.TRONBalance -= amount; 
   } else if (name === "Binance") {
     user.BNBBalance -= amount;
   } else if (name === "Bitcoin Cash") {

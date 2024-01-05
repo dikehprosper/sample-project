@@ -12484,10 +12484,7 @@ opacity: 0.7
 }
 
 
-.modal-body1-1-1{
-     min-height: 660px;
-    padding: 0
-}
+
 
 @media screen and (max-width: 750px) {
 .ticket-box-1 {
@@ -12502,7 +12499,7 @@ flex-direction: column
 }
 
 .modal-body1-1-1{
-     min-height: 660px;
+     min-height: 510px;
     padding: 0
 }
 }

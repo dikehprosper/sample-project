@@ -8,7 +8,6 @@ export const sendEmail = async ({
   userId,
   fullname,
 }: any) => {
-  console.log(emailType);
   try {
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
     const randomNumbers = Array.from(
@@ -38,8 +37,8 @@ export const sendEmail = async ({
       });
     }
 
-    const adminEmail = process.env.EMAIL;
-    const adminEmailKey = process.env.EMAIL_KEY;
+    const adminEmail = process.env.EMAIL!;
+    const adminEmailKey = process.env.EMAIL_KEY!;
 
     var transport = nodemailer.createTransport({
       service: "gmail",
@@ -53,7 +52,7 @@ export const sendEmail = async ({
     });
 
     const mailOptions = {
-      from: adminEmail,
+      from: "contact@meta-chains.org",
       to: email,
       subject: (() => {
         if (emailType === "VERIFY") {
@@ -120,20 +119,27 @@ export const sendEmail = async ({
             color: black;
         }
 
-        .reset-link {
-            background-color: #FFDA39;
-            padding: 17px 37px;
-            border-radius: 25px;
+          .reset-link {
             font-weight: bold;
-            color: black;
+            color: white;
             text-decoration: none;
-         
+            width: 100%;
+             display: flex;
+             justify-content: center;
+           
         }
 
-        .reset-link a {
-          font-weight: bold;
-           text-decoration: none;
-                color: black;
+
+
+         .reset-link a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+              margin: 0px auto;
+               padding: 17px 37px;
+               border-radius: 4px;
+                 background: black;
+                 white-space: nowrap
         }
         .url-link {
             color: black;
@@ -183,11 +189,32 @@ export const sendEmail = async ({
             <h3>Hello ${fullname}</h3>
             <p>To verify your email, please click on the button below</p>
             <div class="reset-link">
-                <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">VERIFY YOUR EMAIL</a>
+                <a href="${
+                  process.env.DOMAIN
+                }/verifyemail?token=${hashedToken}">VERIFY YOUR EMAIL</a>
             </div>
+
+
+               <div class="reset-link">
+
+                <a href="${process.env
+                  .DOMAIN!}/verifyemail?token=${hashedToken}">
+                              <div class="reset-link-inner">
+                             VERIFY YOUR EMAIL
+                                          </div>
+                              </a>
+
+               </div>
+
+
+
             <p class="url-link">
                 If you're having trouble, try copying and pasting the following URL into your browser:
-                <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">"${process.env.DOMAIN}/verifyemail?token=${hashedToken}"</a>
+                <a href="${
+                  process.env.DOMAIN
+                }/verifyemail?token=${hashedToken}">"${
+            process.env.DOMAIN
+          }/verifyemail?token=${hashedToken}"</a>
             </p>
             <p class="expiration">
                 This link will expire in 24 hours.
@@ -259,22 +286,28 @@ export const sendEmail = async ({
             color: #999999;
         }
 
-        .reset-link {
-            background-color: #FFDA39;
-            padding: 17px 37px;
-            border-radius: 25px;
+              .reset-link {
             font-weight: bold;
-            color: black;
+            color: white;
             text-decoration: none;
-            margin: 10px 15px;
+            width: 100%;
+             display: flex;
+             justify-content: center;
+           
         }
+
+
 
          .reset-link a {
             text-decoration: none;
-            color: black;
+            color: white;
             font-weight: bold;
+              margin: 0px auto;
+               padding: 17px 37px;
+               border-radius: 4px;
+                 background: black;
+                 white-space: nowrap
         }
-
         .url {
             color: black;
             font-size: 15px;
@@ -332,9 +365,20 @@ export const sendEmail = async ({
             <h3>Hello ${fullname}</h3>
             <p>Forgot your password?</p>
             <p>To reset your password, please click on the button below</p>
-            <div class="reset-link">
-                <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}">RESET YOUR PASSWORD</a>
-            </div>
+          
+     <div class="reset-link">
+
+                <a href="${process.env
+                  .DOMAIN!}/resetpassword?token=${hashedToken}">
+                              <div class="reset-link-inner">
+                              RESET YOUR PASSWORD
+                                          </div>
+                              </a>
+
+               </div>
+
+
+
             <p class="url">
                 If you're having trouble, try copying and pasting the following URL into your browser:
                 <p>${process.env.DOMAIN}/resetpassword?token=${hashedToken}</p>

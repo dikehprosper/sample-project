@@ -25,12 +25,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(user);
+   
 
     await sendEmail({
       email,
       emailType: "RESET",
       userId: user._id,
+      fullname: user.fullname
     });
 
     return NextResponse.json({

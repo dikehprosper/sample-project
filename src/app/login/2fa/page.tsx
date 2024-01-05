@@ -1,18 +1,14 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 // @ts-ignore
-import img from "./meta.png";
 import axios from "axios";
-import Checkbox from "@mui/material/Checkbox";
 import Image from "next/image";
 // @ts-ignore
 import bgImage1 from "@/images/meta.png";
 import toast, { Toaster } from "react-hot-toast";
 
 const Fa = () => {
-
   const [user, setUser] = useState({
     password: ["", "", "", ""],
   });
@@ -49,7 +45,6 @@ const Fa = () => {
       } else if (index > 0) {
         document.getElementById(`input-${index - 1}`).focus();
       }
-
       setUser({
         ...user,
         password: newPassword,
@@ -162,9 +157,6 @@ console.log(fullPassword)
         />
       ))}
     </div>
-
-
-
         <div
           className="sign"
           onClick={onSubmit}
@@ -175,8 +167,6 @@ console.log(fullPassword)
         >
           {loading ? "Processing" : "Submit"}
         </div>
-
-      
       </div>
     </div>
   );

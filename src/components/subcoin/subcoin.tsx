@@ -142,7 +142,7 @@ const SubCoin = ({ price, data, name }: any) => {
   }
 
   return (
-    <div className="outerbody-subcoin">
+    <div className='outerbody-subcoin'>
       {coins.map((coin) => {
         if (coin.name === name) {
           return (
@@ -168,12 +168,12 @@ const SubCoin = ({ price, data, name }: any) => {
         }
       })}
 
-      <div className="outerbody-subcoin6">
-        <div className="outerbody-subcoin7" onClick={sendSelectedCoin}>
+      <div className='outerbody-subcoin6'>
+        <div className='outerbody-subcoin7' onClick={sendSelectedCoin}>
           {" "}
           <BsArrowUpShort /> Send
         </div>
-        <div className="outerbody-subcoin7" onClick={openModal}>
+        <div className='outerbody-subcoin7' onClick={openModal}>
           <BsArrowDownShort /> Receive
         </div>
       </div>
@@ -198,20 +198,19 @@ const Coin = ({
   }
 
   return (
-    <div className="outerbody-subcoin1" onClick={selectCoin}>
-      <div className="outerbody-subcoin2">
+    <div className='outerbody-subcoin1' onClick={selectCoin}>
+      <div className='outerbody-subcoin2'>
         {" "}
-        
-        <Image src={img} alt="" height={40} />
+        <Image src={img} alt='' height={40} />
       </div>
-      <div className="outerbody-subcoin3">
-        <div className="outerbody-subcoin4">
+      <div className='outerbody-subcoin3'>
+        <div className='outerbody-subcoin4'>
           <div>${currentPrice}</div>
           <div>
             {userBalance}&nbsp;{logo}
           </div>
         </div>
-        <div className="outerbody-subcoin5">
+        <div className='outerbody-subcoin5'>
           <div>{name}</div> &nbsp;
           <div>= &nbsp;${userBalanceWorth}</div>
         </div>
@@ -223,8 +222,7 @@ const Coin = ({
 const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
   const [inputValue, setInputValue] = useState("uyfuhjvuuyijhviufiuhv");
 
-
-   // Function to copy the referral link to the clipboard
+  // Function to copy the referral link to the clipboard
   const copyContent = () => {
     // Get the content of the input element
     const inputElement = document.getElementById("address");
@@ -255,20 +253,21 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
         right: "0px",
         top: "0px",
         bottom: "0px",
-        zIndex: "10000",
+        zIndex: 10000000000,
       }}
     >
-      <div className="modal-body modal-body1-1-1">
+      <div className='modal-body modal-body1-1-1'>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            fontSize: "15px",
-            minHeight: "50px",
-            maxHeight: "50px",
+            fontSize: "12px",
+            minHeight: "35px",
+            maxHeight: "35px",
             borderBottom: "1px solid #344155",
-            padding: "25px",
+            zIndex: 10000000000000,
+            padding: "0px 20px"
           }}
         >
           <div>Receive {logo}</div>
@@ -280,12 +279,20 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
           </div>
         </div>
 
-        <div style={{ height: "900px", marginTop: "15px", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-<div>
- 
-   <QRCode value={address} height={230} />
-</div>
-<div style={{opacity: "0.5"}}>Wallet Address</div>
+        <div
+          style={{
+            height: "300px",
+            marginTop: "15px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <div>
+            <QRCode value={address} height={120} />
+          </div>
+          <div style={{ opacity: "0.5" }}>Wallet Address</div>
         </div>
 
         <div
@@ -299,7 +306,7 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
           <div
             style={{
               display: "flex",
-              height: "50%",
+              height: "34px",
               width: "80%",
               alignSelf: "center",
               fontWeight: "300",
@@ -312,15 +319,15 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
                 height: "39px",
                 borderRadius: "4.5px 0px 0px 4.5px",
               }}
-              className="signup-input form3 source"
-              id="address" // Added id to identify the input element
-              type="text"
+              className='signup-input form3 source'
+              id='address' // Added id to identify the input element
+              type='text'
               value={address || ""}
               readOnly // Add this attribute to make it non-editable
               placeholder={address || ""}
             />
             <div
-              className="referral-link-input"
+              className='referral-link-input'
               style={{
                 backgroundColor: "#FDC40A",
                 display: "flex",
@@ -352,7 +359,7 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "70px",
+                height: "50px",
                 justifyContent: "center",
                 color: "rgba(256, 256, 256, 0.4)",
                 gap: "3px",
@@ -369,7 +376,7 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "70px",
+                height: "50px",
                 justifyContent: "center",
                 color: "rgba(256, 256, 256, 0.4)",
                 gap: "3px",
@@ -384,7 +391,7 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "70px",
+                height: "50px",
                 justifyContent: "center",
                 color: "rgba(256, 256, 256, 0.4)",
                 gap: "3px",
@@ -392,7 +399,9 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
               }}
             >
               <div style={{ fontSize: "17px" }}>Expected unlock</div>
-              <div style={{ fontSize: "12px", whiteSpace: "nowrap" }}>Automatically unlocked after confirmation</div>
+              <div style={{ fontSize: "12px", whiteSpace: "nowrap" }}>
+                Automatically unlocked after confirmation
+              </div>
             </div>
           </div>
         </div>
@@ -401,12 +410,12 @@ const Modal = ({ closeModal, logo, name, address, QRcode }: any) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "end",
-            height: "190px",
+            height: "90px",
             width: "100%",
           }}
         >
           <span
-            className="referral-link-input"
+            className='referral-link-input'
             style={{
               borderRadius: "5px",
               width: "69px",

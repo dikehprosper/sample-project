@@ -59,6 +59,8 @@ const ProfilePage = () => {
     }
   };
 
+
+  
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
     console.log(res.data.data);

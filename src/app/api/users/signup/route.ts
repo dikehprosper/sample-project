@@ -3,7 +3,6 @@ import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import { sendEmail } from "@/helpers/mailer";
-import Referrals from "../../../referrals/page";
 
 connect();
 
@@ -48,12 +47,12 @@ export async function POST(request: NextRequest) {
       DOGEAddress: "ddddddddddddddddddddddddddddddddd",
       BTCWithdrawalMessage: "",
       USDTWithdrawalMessage: "",
-      ETHWithdrawalMessage:  "",
+      ETHWithdrawalMessage: "",
       TRONWithdrawalMessage: "",
       BNBWithdrawalMessage: "",
       BCHWithdrawalMessage: "",
       DOGEWithdrawalMessage: "",
-      totalDepositedAmount: 0
+      totalDepositedAmount: 0,
     });
 
     const savedUser = await newUser.save();

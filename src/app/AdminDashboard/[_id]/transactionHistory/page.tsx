@@ -416,23 +416,9 @@ const TransactionHistory = ({
                         borderRadius: "5px",
                         fontWeight: "500",
                         color: "white",
-                        pointerEvents:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "none"
-                            : "auto",
-                        backgroundColor:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "rgba(128, 128, 128, 0.5)" // Grey color in rgba
-                            : "rgba(0, 256, 0, 0.6)", // Green color in rgba
-                                 opacity:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "0.4" // Grey color in rgba
-                            : "1", // Green color in rgba
-                            
-                      }}
+                        pointerEvents: "auto",
+                        backgroundColor: "rgba(0, 256, 0, 0.6)",
+                            }}
                       onClick={() =>
                         updateUserTicketDetails(
                           data._id,
@@ -456,21 +442,9 @@ const TransactionHistory = ({
                        borderRadius: "5px",
                         fontWeight: "500",
                         color: "white",
-                        pointerEvents:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "none"
-                            : "auto",
-                        backgroundColor:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "rgba(128, 128, 128, 0.5)" // Grey color in rgba
-                            : "rgba(256, 0, 0, 0.6)", // Green color in rgba
-                                opacity:
-                          data.status === "approved" ||
-                          data.status === "disapproved"
-                            ? "0.4" // Grey color in rgba
-                            : "1", // Green color in rgba
+                        pointerEvents: "auto",
+                        backgroundColor: "rgba(256, 0, 0, 0.6)", // Green color in rgba
+                        
                       }}
                       onClick={() =>
                         updateUserTicketDetails(

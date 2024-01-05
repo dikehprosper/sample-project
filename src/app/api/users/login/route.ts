@@ -47,7 +47,6 @@ export async function POST(request: NextRequest) {
     }
 
     if (user.fastatus === true) {
-      console.log(user._id);
       try {
         const triggerSendMail = await sendEmail({
           email,
@@ -71,10 +70,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "Complete your profile",
-          id: user._id, // Include the ID in the error response
+          id: user._id,
         },
         {
-          status: 404, // Use an appropriate status code for an error
+          status: 404,
         }
       );
     }
