@@ -242,10 +242,10 @@ const HeroSection = () => {
               <p className="lead py-3">
                 SEND, AND RECIEVE QUICK TRANSACTION TO MULTIPLE CHAINS
               </p>
-              <button className="btn btn-primary d-inline-flex flex-row align-items-center">
+            <a href="/login">  <button className="btn btn-primary d-inline-flex flex-row align-items-center"  >
                 Get started now
                 <em className="ml-2" data-feather="arrow-right"></em>
-              </button>
+              </button></a>
             </div>
           </div>
         </div>
