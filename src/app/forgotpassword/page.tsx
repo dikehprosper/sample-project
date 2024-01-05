@@ -52,7 +52,7 @@ const RestPasswordResetPage = () => {
   }, [user]);
 
   return (
-    <div className="signin">
+    <div className="signin-forgotpassword">
       <Toaster />
       {loading && (
         <div

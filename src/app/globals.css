@@ -127,6 +127,15 @@ a {
   min-height: 100vh;
   color: white;
 }
+.signin-forgotpassword {
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 57px 15px;
+  height: 100vh;
+  color: white;
+}
 
 .component1 {
   background: #1e293b;
