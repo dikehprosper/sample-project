@@ -135,7 +135,7 @@ const SendSelectedCoin = ({ params }:any) => {
   return (
     <div
       style={{
-        width: "100%",
+       maxWidth: "100vw",
         backgroundColor: "#1E283A",
         display: "flex",
       }}
