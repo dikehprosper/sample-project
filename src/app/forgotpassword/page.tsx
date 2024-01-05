@@ -17,25 +17,26 @@ const RestPasswordResetPage = () => {
   });
   const [buttonDisabled, setButtonDisabled] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+const [sent, setSent] = React.useState(false);
 
-  const onSubmit = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.post("/api/users/forgotpassword", user);
-      console.log("Password Reset Link sent successfully", response.data);
-
-      toast.success("Password Reset Link sent successfully");
-    } catch (error: any) {
-      console.error("failed to send", error.message);
-      if (error.status === 400) {
-        toast.error("No user with such email");
-      } else if (error.status === 500) {
-        toast.error("An error occured");
-      }
-    } finally {
-      setLoading(false);
+const onSubmit = async () => {
+  try {
+    setSent(false);
+    setLoading(true);
+    const response = await axios.post("/api/users/forgotpassword", user);
+    console.log("Password Reset Link sent successfully", response.data);
+    setSent(true);
+  } catch (error: any) {
+    console.error("failed to send", error.message);
+    if (error.status === 400) {
+      toast.error("No user with such email");
+    } else if (error.status === 500) {
+      toast.error("An error occured");
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
 
   function isValidEmail(email: string): boolean {
     // Regular expression pattern for a simple email validation
@@ -52,8 +53,24 @@ const RestPasswordResetPage = () => {
   }, [user]);
 
   return (
-    <div className="signin-forgotpassword">
+    <div className='signin-forgotpassword'>
       <Toaster />
+      {sent && (
+        <div
+          style={{
+            width: "80%",
+            height: "50px",
+            background: "rgba(0, 300, 0, 0.2)",
+            position: "absolute",
+            borderRadius: "4px",
+            border: "1px solid rgba(0, 300, 100, 0.4)",
+            display: "flex", justifyContent: "center", alignItems: "center", maxWidth: "500px", top: "25px", 
+          }}
+        >
+          {" "}
+          Password Reset Link sent successfully
+        </div>
+      )}
       {loading && (
         <div
           style={{
@@ -71,29 +88,29 @@ const RestPasswordResetPage = () => {
           }}
         >
           <div
-            className="logo"
+            className='logo'
             style={{ height: "40px", width: "40px", objectFit: "cover" }}
           >
             <Image
               src={bgImage1} // Use the imported image URL
-              alt="Description of the image"
-              layout="responsive"
-              objectFit="cover"
-              objectPosition="center center"
+              alt='Description of the image'
+              layout='responsive'
+              objectFit='cover'
+              objectPosition='center center'
               priority
             />
           </div>
         </div>
       )}
-      <div className="component1">
+      <div className='component1'>
         <div style={{ height: "64px", marginBottom: "24px" }}>
           <div style={{ height: "50px", width: "50px", objectFit: "cover" }}>
             <Image
               src={bgImage1} // Use the imported image URL
-              alt="Description of the image"
-              layout="responsive"
-              objectFit="cover"
-              objectPosition="center center"
+              alt='Description of the image'
+              layout='responsive'
+              objectFit='cover'
+              objectPosition='center center'
               priority
             />
           </div>
@@ -131,16 +148,16 @@ const RestPasswordResetPage = () => {
           }}
         >
           <label
-            htmlFor="email"
+            htmlFor='email'
             style={{ color: "#94A4B8", fontSize: "14px", fontWeight: "500" }}
           >
             Email
           </label>
 
           <input
-            className="signup-input"
-            id="email"
-            type="text"
+            className='signup-input'
+            id='email'
+            type='text'
             value={user.email}
             onChange={(e) =>
               setUser({
@@ -148,12 +165,12 @@ const RestPasswordResetPage = () => {
                 email: e.target.value,
               })
             }
-            placeholder="Email address"
+            placeholder='Email address'
           />
         </div>
 
         <div
-          className="sign"
+          className='sign'
           onClick={onSubmit}
           style={{
             pointerEvents: buttonDisabled ? "none" : "auto",
