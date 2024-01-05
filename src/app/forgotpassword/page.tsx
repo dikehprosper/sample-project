@@ -64,7 +64,7 @@ const onSubmit = async () => {
             position: "absolute",
             borderRadius: "4px",
             border: "1px solid rgba(0, 300, 100, 0.4)",
-            display: "flex", justifyContent: "center", alignItems: "center", maxWidth: "500px", top: "25px", 
+            display: "flex", justifyContent: "center", alignItems: "center", maxWidth: "500px", bottom: "25px", 
           }}
         >
           {" "}
