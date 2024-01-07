@@ -357,12 +357,6 @@ export const sendEmail = async ({
 
                </div>
 
-
-
-            <p class="url">
-                If you're having trouble, try copying and pasting the following URL into your browser:
-                <p>${process.env.DOMAIN}/resetpassword?token=${hashedToken}</p>
-            </p>
             <p class="expiration">
                 This link will expire in 2 hours.
             </p>
