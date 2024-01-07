@@ -188,34 +188,14 @@ export const sendEmail = async ({
         <div class="content">
             <h3>Hello ${fullname}</h3>
             <p>To verify your email, please click on the button below</p>
-            <div class="reset-link">
-                <a href="${
-                  process.env.DOMAIN
-                }/verifyemail?token=${hashedToken}">VERIFY YOUR EMAIL</a>
-            </div>
-
-
-               <div class="reset-link">
-
-                <a href="${process.env
-                  .DOMAIN!}/verifyemail?token=${hashedToken}">
+        <div class="reset-link">
+         <a href="${process.env.DOMAIN!}/verifyemail?token=${hashedToken}">
                               <div class="reset-link-inner">
                              VERIFY YOUR EMAIL
                                           </div>
                               </a>
+         </div>
 
-               </div>
-
-
-
-            <p class="url-link">
-                If you're having trouble, try copying and pasting the following URL into your browser:
-                <a href="${
-                  process.env.DOMAIN
-                }/verifyemail?token=${hashedToken}">"${
-            process.env.DOMAIN
-          }/verifyemail?token=${hashedToken}"</a>
-            </p>
             <p class="expiration">
                 This link will expire in 24 hours.
             </p>
