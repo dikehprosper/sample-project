@@ -29,7 +29,7 @@ export default function RootLayout({
         style={{backgroundColor: "#0F172B", backgroundRepeat: "no-repeat"}}
       >
         <SmartsuppChat />
-        <SmartsuppChat />
+
         <Toaster />
         {children}
       </body>
