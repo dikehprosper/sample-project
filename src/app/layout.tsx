@@ -23,11 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body
         className={inter.className}
-        style={{ backgroundColor: "#0F172B", backgroundRepeat: "no-repeat" }}
+        style={{backgroundColor: "#0F172B", backgroundRepeat: "no-repeat"}}
       >
+        <SmartsuppChat />
         <SmartsuppChat />
         <Toaster />
         {children}
