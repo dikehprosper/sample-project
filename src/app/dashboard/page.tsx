@@ -45,7 +45,7 @@ const ProfilePage = () => {
     verifyToken: "$2a$10$OJmSnqWyirXu2alczO4w4.13q0wISWQspqyczr8JnjKY17H2.cuJ6",
     verifyTokenExpiry: "2023-09-15T18:22:58.274Z",
   });
-  const [price, setPrice] = React.useState([]);
+  const [price, setPrice] = React.useState<any>([]);
   const logout = async () => {
     try {
       await axios.get("/api/users/logout");
@@ -63,7 +63,6 @@ const ProfilePage = () => {
   
   const getUserDetails = async () => {
     const res = await axios.get("/api/users/me");
-    console.log(res.data.data);
     setData(res.data.data);
   };
 
@@ -71,9 +70,7 @@ const ProfilePage = () => {
     getUserDetails();
   }, []);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+
 
  const [open2, setOpen2] = useState(true);
  function toggleMenu() {
@@ -121,23 +118,21 @@ const ProfilePage = () => {
     };
   }, []);
 
-  // To set Coin Prices
 
    useEffect(() => {
-    setLoading(true)
-      // Make a GET request to your API route
-      fetch('/api/users/crypto-price') // Replace 'your-api-route-name' with the actual route
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setPrice(data)
-           setLoading(false)// Set the fetched data in your component's state
-        })
-
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-        });
+getCryptoPrice()
     }, []);
+
+  async function getCryptoPrice() {
+    const file = "file";
+    try {
+      const data = await axios.post("/api/users/crypto-price", {file});
+      const res = await data.data
+       setPrice(res)
+    } catch (error: any) {
+      console.error("Error fetching data:", error);
+    }
+  }
 
 
  
@@ -194,9 +189,6 @@ const ProfilePage = () => {
     setTotalBalance(total);
   }, [data, price, amount]);
 
-useEffect(() => {
-     console.log(totalBalance)
-}, [totalBalance])
 
   return (
     <div

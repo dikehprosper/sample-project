@@ -119,18 +119,22 @@ const SendSelectedCoin = ({ params }:any) => {
 
   // To set Coin Prices
 
-   useEffect(() => {
-      // Make a GET request to your API route
-      fetch('/api/users/crypto-price') // Replace 'your-api-route-name' with the actual route
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setPrice(data) // Set the fetched data in your component's state
-        })
-        .catch((error) => {
-          console.error('Error fetching data:', error);
-        });
+    useEffect(() => {
+getCryptoPrice()
     }, []);
+
+  async function getCryptoPrice() {
+    const file = "file";
+    try {
+      const data = await axios.post("/api/users/crypto-price", {file});
+      const res = await data.data
+       setPrice(res)
+    } catch (error: any) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+
 
   return (
     <div
