@@ -5,7 +5,7 @@ const SmartsuppChat = () => (
       dangerouslySetInnerHTML={{
         __html: `
           var _smartsupp = _smartsupp || {};
-          _smartsupp.key = 'b55ba5e546c1a9dfd60310de5e54e1df5bc6a560';
+          _smartsupp.key = 'ec5a5afd5ee1df6eda98d539ac8d742c12cb972f';
           window.smartsupp||(function(d) {
             var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
             s=d.getElementsByTagName('script')[0];c=d.createElement('script');
@@ -15,7 +15,13 @@ const SmartsuppChat = () => (
         `,
       }}
     />
-    <noscript> Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+    <noscript>
+      {" "}
+      Powered by{" "}
+      <a href='https://www.smartsupp.com' target='_blank'>
+        Smartsupp
+      </a>
+    </noscript>
   </>
 );
 
