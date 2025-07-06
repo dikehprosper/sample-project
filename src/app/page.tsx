@@ -340,7 +340,7 @@ const BlogSection = () => {
               <a href='#' className='card1'>
                 <div className='card2'></div>
                 <Image
-                  src={bgImage2} // Use the imported image URL
+                  src={bgImage2}
                   alt='Description of the image'
                   layout='responsive'
                   objectFit='cover'
@@ -350,21 +350,22 @@ const BlogSection = () => {
               </a>
               <div className='card-body'>
                 <a href='#' className='card-title mb-2'>
-                  <h5 style={{color: "#FFDA39"}}>What is Crypto?</h5>
+                  <h5 style={{color: "#FFDA39"}}>Lorem Ipsum Dolor</h5>
                 </a>
                 <p className='card-text'>
-                  Bitcoin, Ethereum, and other crypto are revolutionizing how we
-                  invest, bank, and use money.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Integer nec odio. Praesent libero.
                 </p>
               </div>
             </div>
           </div>
+
           <div className='col-md-4' style={{marginBottom: "10px"}}>
             <div className='card'>
               <a href='#' className='card1'>
                 <div className='card2'></div>
                 <Image
-                  src={bgImage3} // Use the imported image URL
+                  src={bgImage3}
                   alt='Description of the image'
                   layout='responsive'
                   objectFit='cover'
@@ -374,22 +375,22 @@ const BlogSection = () => {
               </a>
               <div className='card-body'>
                 <a href='#' className='card-title mb-2'>
-                  <h5 style={{color: "#FFDA39"}}>What is Bitcoin?</h5>
+                  <h5 style={{color: "#FFDA39"}}>Sed Ut Perspiciatis</h5>
                 </a>
                 <p className='card-text'>
-                  Bitcoin is the world&apos;s first widely adopted
-                  cryptocurrency — it allows for secure and seamless
-                  peer-to-peer transactions on the internet.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium.
                 </p>
               </div>
             </div>
           </div>
+
           <div className='col-md-4' style={{marginBottom: "10px"}}>
             <div className='card'>
               <a href='#' className='card1'>
                 <div className='card2'></div>
                 <Image
-                  src={bgImage4} // Use the imported image URL
+                  src={bgImage4}
                   alt='Description of the image'
                   layout='responsive'
                   objectFit='cover'
@@ -399,11 +400,11 @@ const BlogSection = () => {
               </a>
               <div className='card-body'>
                 <a href='#' className='card-title mb-2'>
-                  <h5 style={{color: "#FFDA39"}}>Market Updates</h5>
+                  <h5 style={{color: "#FFDA39"}}>Neque Porro Quisquam</h5>
                 </a>
                 <p className='card-text'>
-                  Grasp market shifts through understanding news and events
-                  influencing the latest movements.{" "}
+                  Neque porro quisquam est, qui dolorem ipsum quia dolor sit
+                  amet, consectetur, adipisci velit.
                 </p>
               </div>
             </div>
@@ -420,7 +421,7 @@ const FAQSection = () => {
       <div className='container'>
         <div className='row'>
           <div className='col-md-6 mx-auto text-center'>
-            <h2>TRUSTED CRYPTOCURRENCY PLATFORM</h2>
+            <h2>Lorem Ipsum Dolor Sit</h2>
             <p className='text-muted lead'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
@@ -431,7 +432,7 @@ const FAQSection = () => {
             <div className='row'>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <MdStorage fontSize='40px' /> &nbsp; &nbsp; SECURE STORAGE
+                  <MdStorage fontSize='40px' /> &nbsp; &nbsp; Lorem Ipsum
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -440,7 +441,7 @@ const FAQSection = () => {
               </div>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <FaKey fontSize='35px' /> &nbsp; &nbsp; Protected by insurance
+                  <FaKey fontSize='35px' /> &nbsp; &nbsp; Dolor Sit Amet
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -449,8 +450,8 @@ const FAQSection = () => {
               </div>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <BsShieldShaded fontSize='35px' /> &nbsp; &nbsp;Industry best
-                  practices
+                  <BsShieldShaded fontSize='35px' /> &nbsp; &nbsp; Consectetur
+                  Elit
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -459,7 +460,7 @@ const FAQSection = () => {
               </div>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <BiSolidLockAlt fontSize='35px' /> &nbsp; &nbsp;Safe
+                  <BiSolidLockAlt fontSize='35px' /> &nbsp; &nbsp; Amet Elit
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -469,8 +470,8 @@ const FAQSection = () => {
               </div>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <AiTwotoneThunderbolt fontSize='35px' /> &nbsp; &nbsp;No
-                  Downtimes
+                  <AiTwotoneThunderbolt fontSize='35px' /> &nbsp; &nbsp; Nulla
+                  Vitae
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
@@ -480,7 +481,7 @@ const FAQSection = () => {
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
                   <BsFillCheckSquareFill fontSize='26px' color='white' /> &nbsp;
-                  &nbsp;Proof Checking
+                  &nbsp; Quis Nostrud
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -489,7 +490,7 @@ const FAQSection = () => {
               </div>
               <div className='col-md-6 mb-5'>
                 <h6 style={{display: "flex", alignItems: "center"}}>
-                  <BiTime fontSize='35px' /> &nbsp; &nbsp;Instant On
+                  <BiTime fontSize='35px' /> &nbsp; &nbsp; Tempor Incididunt
                 </h6>
                 <p className='text-muted'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
