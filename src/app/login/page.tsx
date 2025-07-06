@@ -60,7 +60,7 @@ const handleLogin = async (user, route) => {
 
 const onLogin = async () => {
   console.log(user.email)
-  if (user.email === "meta-chains@gmail.com") {
+  if (user.email === "zentra@gmail.com") {
     handleLogin(user, "/AdminDashboard");
   } else {
     handleLogin(user, "/dashboard");

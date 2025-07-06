@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const domain = process.env.DOMAIN
-console.log(domain);
+const domain = process.env.NEXT_PUBLIC_DOMAIN!;
 
 
 
@@ -16,7 +15,7 @@ const Referral = () => {
     // @ts-ignore
     if (user && user._id) {
       // @ts-ignore
-      const newReferralLink = `https://www.meta-chains.org/signup/${user._id}`;
+      const newReferralLink = `${domain}/signup/${user._id}`;
       setReferralLink(newReferralLink);
     }
   };

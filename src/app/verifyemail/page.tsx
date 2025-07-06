@@ -72,7 +72,7 @@ export default function VerifyEmailPage() {
                   />
                 </div>
               </div>
-              <h4 style={{ fontWeight: "bold" }}>META-CHAIN</h4>
+              <h4 style={{ fontWeight: "bold" }}>ZENTRA</h4>
               <div
                 style={{
                   width: "110%",
@@ -170,7 +170,7 @@ export default function VerifyEmailPage() {
                   />
                 </div>
               </div>
-              <h4 style={{ fontWeight: "bold" }}>META-CHAIN</h4>
+              <h4 style={{ fontWeight: "bold" }}>ZENTRA</h4>
 
               <div
                 style={{

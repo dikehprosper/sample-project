@@ -51,7 +51,7 @@ const Body5 = ({
               {data.fullname.split(" ")[0]}
             </div>
             <p style={{ opacity: "0.5", fontSize: "14px", fontWeight: "300" }}>
-              Investor
+              user
             </p>
           </div>
           <div className="body5-5">

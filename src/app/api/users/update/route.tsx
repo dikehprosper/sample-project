@@ -8,15 +8,16 @@ connect();
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    console.log(reqBody);
-    const { id, address, country, nextofkinname, nextofkinphone, nextofkinaddress } = reqBody;
 
+    const { id, address, country, nextofkinname, nextofkinphone, nextofkinaddress } = reqBody;
+    
     //Check if the User already exist
     const user = await User.findOne({ 
         _id: id 
     });
 
- 
+
+   
   
     user.address = address;
     user.country = country;
@@ -37,6 +38,7 @@ export async function POST(request: NextRequest) {
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
       expiresIn: "1d",
     });
+    
 
     const response = NextResponse.json({
       message: "Login Successful",

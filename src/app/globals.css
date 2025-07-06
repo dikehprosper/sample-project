@@ -12108,7 +12108,7 @@ footer h5 {
 
 .logo {
   width: 100px;
-  background-color: yellow;
+  background-color: transparent;
   /* Set the initial width */
   height: auto;
   /* Maintain aspect ratio */

@@ -17,10 +17,10 @@ export default function SignUpSuccess() {
 
   return (
     <>
-      <div style={{ position: "absolute", zIndex: "-100" }}>
+      <div style={{position: "absolute", zIndex: "-100"}}>
         <Form user={user} setUser={setUser} />
       </div>
-      <div className="signin">
+      <div className='signin'>
         <div
           style={{
             zIndex: "50000",
@@ -36,22 +36,20 @@ export default function SignUpSuccess() {
             color: "white",
           }}
         >
-          <div className="component2">
-            <div style={{ height: "30px", marginBottom: "24px" }}>
-              <div
-                style={{ height: "50px", width: "50px", objectFit: "cover" }}
-              >
+          <div className='component2'>
+            <div style={{height: "30px", marginBottom: "24px"}}>
+              <div style={{height: "50px", width: "50px", objectFit: "cover"}}>
                 <Image
                   src={bgImage1} // Use the imported image URL
-                  alt="Description of the image"
-                  layout="responsive"
-                  objectFit="cover"
-                  objectPosition="center center"
+                  alt='Description of the image'
+                  layout='responsive'
+                  objectFit='cover'
+                  objectPosition='center center'
                   priority
                 />
               </div>
             </div>
-            <h4 style={{ fontWeight: "bold" }}>META-CHAIN</h4>
+            <h4 style={{fontWeight: "bold"}}>ZENTRA</h4>
             <div
               style={{
                 width: "110%",
@@ -78,11 +76,11 @@ export default function SignUpSuccess() {
               }}
             >
               <h6>Verify your email</h6>
-              <p style={{ textAlign: "center" }}>
+              <p style={{textAlign: "center"}}>
                 Your registration was succesful. We have sent you a verification
                 email.
               </p>
-              <p style={{ textAlign: "center" }}>
+              <p style={{textAlign: "center"}}>
                 if you do not see it in your inbox please check your Spam folder
               </p>
             </div>
@@ -99,7 +97,7 @@ export default function SignUpSuccess() {
                 color: "black",
                 fontWeight: "500",
               }}
-              href="/signup"
+              href='/signup'
             >
               Back
             </Link>

@@ -11,7 +11,7 @@ export const sendEmail = async ({
   try {
     const hashedToken = await bcryptjs.hash(userId.toString(), 10);
     const randomNumbers = Array.from(
-      { length: 4 },
+      {length: 4},
       () => Math.floor(Math.random() * 9) + 1
     );
     const randomNumbersString = randomNumbers.join("");
@@ -52,7 +52,7 @@ export const sendEmail = async ({
     });
 
     const mailOptions = {
-      from: "contact@meta-chains.org",
+      from: "sample-project",
       to: email,
       subject: (() => {
         if (emailType === "VERIFY") {
@@ -60,7 +60,7 @@ export const sendEmail = async ({
         } else if (emailType === "RESET") {
           return "Reset your password";
         } else if (emailType === "WELCOME") {
-          return "Welcome to Meta-chains";
+          return "Welcome to Zentra";
         } else {
           return "2FA Password"; // You should define the subject for other cases
         }
@@ -181,9 +181,6 @@ export const sendEmail = async ({
 
 <body>
     <div class="container">
-        <div class="image">
-            <img src="https://firebasestorage.googleapis.com/v0/b/my-app-a50eb.appspot.com/o/meta%20(1).png?alt=media&token=e642c545-3389-47c1-ac45-c5bc66aa974a" alt="Firebase Image" width="200" height="150">
-        </div>
 
         <div class="content">
             <h3>Hello ${fullname}</h3>
@@ -201,7 +198,7 @@ export const sendEmail = async ({
             </p>
         </div>
     </div>
-    <p class="footer1">© Meta-chains | Address here</p>
+    <p class="footer1">© Zentra | Address here</p>
     <p class="footer-links">
         <a href="" style="color: black;">View Web Version</a> |
         <a href="" style="color: black;">Email Preferences</a> |
@@ -209,10 +206,10 @@ export const sendEmail = async ({
     </p>
     <p class="footer">
         If you have any questions please contact us
-        <a href="" style="color: black;">hello@meta-chains.com</a>
+        <a href="" style="color: black;">hello@Zentra.com</a>
     </p>
     <p class="footer">
-        <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
+        <a href="mailto@Zentra.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
 </html>
@@ -337,10 +334,7 @@ export const sendEmail = async ({
 
 <body>
     <div class="container">
-        <div class="image">
-            <img src="https://firebasestorage.googleapis.com/v0/b/my-app-a50eb.appspot.com/o/meta%20(1).png?alt=media&token=e642c545-3389-47c1-ac45-c5bc66aa974a" alt="Firebase Image" width="200" height="150">
-        </div>
-
+      
         <div class="content">
             <h3>Hello ${fullname}</h3>
             <p>Forgot your password?</p>
@@ -362,7 +356,7 @@ export const sendEmail = async ({
             </p>
         </div>
     </div>
-    <p class="footer1">© Meta-chains | Address here</p>
+    <p class="footer1">© Zentra | Address here</p>
     <p class="footer-links">
         <a href="" style="color: black;">View Web Version</a> |
         <a href="" style="color: black;">Email Preferences</a> |
@@ -370,10 +364,10 @@ export const sendEmail = async ({
     </p>
     <p class="footer">
         If you have any questions, please contact us
-        <a href="" style="color: black;">hello@meta-chains.com</a>
+        <a href="" style="color: black;">hello@Zentra.com</a>
     </p>
     <p class="footer">
-        <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
+        <a href="mailto@Zentra.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
 </html>
@@ -467,20 +461,20 @@ export const sendEmail = async ({
 
 <body>
     <div class="container">
-        <div class="image">
-            <img src="https://firebasestorage.googleapis.com/v0/b/my-app-a50eb.appspot.com/o/meta%20(1).png?alt=media&token=e642c545-3389-47c1-ac45-c5bc66aa974a" alt="Firebase Image" width="200" height="150">
-        </div>
+      
 
-        <div class="content">
-            <h3>Welcome to Meta-chains</h3>
-            <p>Getting Started With Meta-chains</p>
-            <p>Meta-chains was founded in 2001 by Meta-traders.org with the aim of making investing accessible for everyone. Our goals since day one have been to create a digital market environment where people can invest and earn regardless of their schedules. Trades will be carried out even in their absence, reducing our investors' burden.</p>
-            <p>Now, 20 years later, and with more than 1,000 team members and over 30 thousand users, we're one of the fastest-growing investment companies in Canada. With our service license, state-of-the-art security, and streamlined user experience, we make it possible for both first-time investors and seasoned experts to invest in what they believe in.</p>
-            <p>Our user-friendly and enhanced trading software platform empowers you to invest in the stocks, cryptocurrencies, and other platforms you want — with any amount of money.</p>
-            <p>Meta-chains aspires to leverage its expertise and strong capital position to own and operate a selection of retail, consumer products, and wholesale businesses.</p>
-        </div>
+       <div class="content">
+    <h3>Welcome to Zentra</h3>
+    <p>Getting Started With Zentras</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat justo et diam sagittis, at hendrerit arcu luctus.</p>
+</div>
+
     </div>
-    <p class="footer1">© Meta-chains | Address here</p>
+    <p class="footer1">©Zentra | Address here</p>
     <p class="footer-links">
         <a href="" style="color: black;">View Web Version</a> |
         <a href="" style="color: black;">Email Preferences</a> |
@@ -488,10 +482,10 @@ export const sendEmail = async ({
     </p>
     <p class="footer">
         If you have any questions, please contact us
-        <a href="" style="color: black;">hello@meta-chains.com</a>
+        <a href="" style="color: black;">hello@Zentra.com</a>
     </p>
     <p class="footer">
-        <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe</a> from our mailing lists
+        <a href="mailto@Zentra.com" style="color: black;">Unsubscribe</a> from our mailing lists
     </p>
 </body>
 </html>`;
@@ -511,18 +505,7 @@ export const sendEmail = async ({
     
     "
   >
-    <div
-      style="
-        text-align: center;
-        width: 80%;
-        height: 200px;
-        align-self: center;
-        margin: 10px auto;
-      "
-    >
-      <img src="https://firebasestorage.googleapis.com/v0/b/my-app-a50eb.appspot.com/o/meta%20(1).png?alt=media&token=e642c545-3389-47c1-ac45-c5bc66aa974a" alt="Firebase Image" width="200" height="150">
-    </div>
-
+  
     <div
       style="
         text-align: center;
@@ -591,7 +574,7 @@ export const sendEmail = async ({
         text-decoration: none;
       "
     >
-      © Meta-chains | Address here
+      ©Zentra | Address here
     </p>
     <p
       style="
@@ -614,7 +597,7 @@ export const sendEmail = async ({
       "
     >
       If you have any questions please contact us
-      <a href="" style="color: black;">hello@meta-chains.com</a>
+      <a href="" style="color: black;">hello@Zentra.com</a>
     </p>
     <p
       style="
@@ -625,7 +608,7 @@ export const sendEmail = async ({
         
       "
     >
-      <a href="mailto@meta-chains.com" style="color: black;">Unsubscribe </a>
+      <a href="mailto@Zentra.com" style="color: black;">Unsubscribe </a>
       from our mailing lists
     </p>
   </body>

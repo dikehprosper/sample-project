@@ -7,7 +7,7 @@ connect();
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
-    console.log(reqBody);
+   
     const {
       email,
       fullname,
@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
       nextofkinaddress,
     } = reqBody;
 
+
     //Check if the User already exist
     const user = await User.findOne({
       email,
@@ -32,6 +33,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    console.log(reqBody, "console.log(reqBody);");
 
     (user.email = email),
       (user.fullname = fullname),

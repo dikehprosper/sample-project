@@ -123,7 +123,7 @@ const Navigator = ({ open2, logout, toggleMenu, changeLoadingStatusForNav }: any
         style={{ height: "40px", width: "50px", marginBottom: "45px" }}
       >
         <Image src={logo} alt="" height={40} width={40} />
-        <h2 style={{ fontSize: "10px", whiteSpace: "nowrap" }}>META-TRADER</h2>
+        <h2 style={{ fontSize: "10px", whiteSpace: "nowrap" }}>ZENTRA</h2>
       </div>
       <div className="nav-2">
         <div className="nav-31">
